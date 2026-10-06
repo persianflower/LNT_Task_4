@@ -7,7 +7,8 @@ from PIL import Image
 from flask import jsonify
 from json import JSONEncoder
 
-url = "http://127.0.0.1:8000/predict"
+url = "http://127.0.0.1:8000/predict_json"
+
 
 # creating a object
 ankle_image = Image.open(r"/Users/ayesha/PycharmProjects/flaskapi/test_ankle.jpeg")
@@ -41,6 +42,7 @@ sandal = 255 - sandal
 response = requests.post(url,json=sandal.tolist())
 print(response)
 print(response.json())
+
 
 shirt_image = Image.open(r"/Users/ayesha/PycharmProjects/flaskapi/shirt.jpeg")
 MAX_SIZE = (51, 73)
