@@ -33,10 +33,6 @@ def predict_image():
         new_img = 255 - new_img
         #data = request.get_json()
         data = np.array(new_img, dtype=np.float32)
-        if data.size != 28 * 28:
-            return jsonify({
-                "error": f"Expected 784 pixels, got {data.size}"
-            }), 400
         data = data.reshape(1, 28, 28, 1)
         data = data / 255.0
         prediction = model.predict(data)

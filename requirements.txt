@@ -5,3 +5,4 @@ tensorflow==2.20.0
 keras==3.13.2
 requests==2.32.4
 opencv-python==5.0.0.93
+pillow==11.3.0
