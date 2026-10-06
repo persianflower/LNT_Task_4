@@ -18,9 +18,11 @@ def home():
 @app.route('/predict_image',methods=['POST'])
 def predict_image():
     try:
+        if "image" not in request.files:
+            return jsonify({"error": "No data provided"}),400
         file = request.files["image"]
-        if not file:
-            return jsonify({"error":"No data provided"}),400
+        if file.filename==" ":
+            return jsonify({"error":"Please provide an image to be processed"}),400
         image = Image.open(file.stream)
         max_size = (51, 73)
         image.thumbnail(max_size)
